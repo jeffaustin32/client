@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+md-card {
+    margin: 24px 24px 0px 24px;
+}
+
+md-dialog-container {
+    padding: 0;
+}
+
+html {
+    height: calc(100% - 80px);
+}
+
+body {
+    height: 100%;
+}

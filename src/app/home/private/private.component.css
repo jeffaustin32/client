@@ -1,0 +1,27 @@
+thead {
+    background-color: #039be5;
+    color: #fff;
+}
+
+th {
+    padding: 0;
+}
+
+tr {
+    height: 56px;
+    vertical-align: center;
+    padding: 0;
+}
+
+td {
+    padding-left: 16px;
+}
+
+tbody > tr:nth-child(odd) {
+    background: #f7f7f7;
+}
+
+tbody > tr:hover {
+  background-color: #EEEEEE;
+  transition: all ease-in 200ms;
+}

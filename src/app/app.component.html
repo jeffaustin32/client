@@ -1,3 +1,38 @@
-<h1>
-  {{title}}
-</h1>
+<md-toolbar color="primary">
+  <button md-mini-fab (click)="sidenav.toggle();" [@slideInOut] *ngIf="isLoggedIn" style="margin-right:16px;">
+    <md-icon>more_vert</md-icon>
+  </button>
+  <h2 style="font-weight:400;">Client Seed</h2>
+
+  <span style="flex: 1 1 auto;"></span>
+
+  <span style="margin-right: 16px; font-size: 16px">{{ userEmail }}</span>
+  <button md-mini-fab [mdMenuTriggerFor]="menu">
+    <md-icon>account_circle</md-icon>
+  </button>
+
+  <md-menu #menu="mdMenu" [overlapTrigger]="false">
+    <button md-menu-item *ngIf="!isLoggedIn" (click)="login()">
+      Log in
+      </button>
+    <button md-menu-item *ngIf="isLoggedIn" (click)="logout()">
+      Logout
+      </button>
+  </md-menu>
+</md-toolbar>
+
+<md-sidenav-container class="example-container">
+  <md-sidenav #sidenav class="example-sidenav">
+    <button md-menu-item *ngIf="isLoggedIn" [routerLink]="['home']" [disabled]="this.router.url === '/home'" (click)="sidenav.close()">
+      Home
+      </button>
+    <button md-menu-item *ngIf="isLoggedIn" [routerLink]="['info']" [disabled]="this.router.url === '/info'" (click)="sidenav.close()">
+      Info
+    </button>
+  </md-sidenav>
+
+  <div class="example-sidenav-content">
+    <router-outlet></router-outlet>
+  </div>
+
+</md-sidenav-container>
